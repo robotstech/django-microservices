@@ -1,0 +1,3 @@
+-r ./message_boards/requirements.txt
+-r ./message_board_images/requirements.txt
+-r ./message_board_comments/requirements.txt

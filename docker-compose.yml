@@ -1,0 +1,47 @@
+version: '3'
+volumes:
+  pg_data:
+services:
+  postgres:
+    build:
+      context: ./postgres/
+      dockerfile: Dockerfile
+    volumes:
+      - pg_data:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=message_boards,message_board_images,message_board_comments
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  message_boards:
+    build:
+      context: ./message_boards/
+      dockerfile: Dockerfile
+    env_file:
+      - message_boards/.env
+    ports:
+      - "8000:8000"
+    command: gunicorn -w 4 message_boards.wsgi -b 0.0.0.0:8000
+    depends_on:
+      - postgres
+  message_board_images:
+    build:
+      context: ./message_board_images/
+      dockerfile: Dockerfile
+    env_file:
+      - message_board_images/.env
+    ports:
+      - "8001:8001"
+    command: gunicorn -w 4 message_board_images.wsgi -b 0.0.0.0:8001
+    depends_on:
+      - postgres
+  message_board_comments:
+    build:
+      context: ./message_board_comments/
+      dockerfile: Dockerfile
+    env_file:
+      - message_board_comments/.env
+    ports:
+      - "8002:8002"
+    command: gunicorn -w 4 message_board_comments.wsgi -b 0.0.0.0:8002
+    depends_on:
+      - postgres
