@@ -15,12 +15,22 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
+from comments.views import CommentImageViewSet, CommentViewSet
 from message_board_comments import settings
+from message_board_comments.settings import API_PREFIX
+
+router = DefaultRouter()
+router.register("comments", CommentViewSet, basename="comments")
+router.register("comment-images", CommentImageViewSet, basename="comment-images")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # apps
+    path(f'{API_PREFIX}/', include(router.urls)),
 ]
 
 if settings.DEBUG:
