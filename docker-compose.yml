@@ -18,6 +18,8 @@ services:
       dockerfile: Dockerfile
     env_file:
       - message_boards/.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/message_boards
     ports:
       - "8000:8000"
     command: gunicorn -w 4 message_boards.wsgi -b 0.0.0.0:8000
@@ -29,6 +31,8 @@ services:
       dockerfile: Dockerfile
     env_file:
       - message_board_images/.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/message_board_images
     ports:
       - "8001:8001"
     command: gunicorn -w 4 message_board_images.wsgi -b 0.0.0.0:8001
@@ -40,6 +44,8 @@ services:
       dockerfile: Dockerfile
     env_file:
       - message_board_comments/.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/message_board_comments
     ports:
       - "8002:8002"
     command: gunicorn -w 4 message_board_comments.wsgi -b 0.0.0.0:8002
