@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # apps
-    'message_board_images',
+    'images',
 ]
 
 MIDDLEWARE = [

@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # apps
-    'message_boards',
+    'boards',
 ]
 
 MIDDLEWARE = [

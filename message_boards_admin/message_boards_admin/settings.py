@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django_microservices_admin',
 
     # microservices-apps
-    'app1',
+    'message_boards',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +137,10 @@ MEDIA_ROOT = Path.joinpath(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MICROSERVICES_ADMIN = {
+    "message_boards": {
+        "DATABASE_URL": "postgresql://postgres:postgres@localhost:5432/message_boards",
+        "DATABASE_TABLES": ["boards_board"]
+    }
+}
