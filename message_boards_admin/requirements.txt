@@ -22,4 +22,4 @@ mixer==7.2.1
 gunicorn==20.1.0
 
 # custom
-git+https://github.com/robotstech/django-microservices-admin
+django-microservices-admin==0.0.1

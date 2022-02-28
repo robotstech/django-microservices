@@ -29,7 +29,7 @@ docker-compose up
 
 #### development
 ```shell
-docker-compose up --build --remove-orphan
+docker-compose up --build --remove-orphans
 ```
 
 

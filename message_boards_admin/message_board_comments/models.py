@@ -8,14 +8,13 @@
 from django.db import models
 
 
-class BoardsBoard(models.Model):
+class CommentsComment(models.Model):
     id = models.BigAutoField(primary_key=True)
     created_at = models.DateTimeField()
     modified_at = models.DateTimeField()
-    title = models.CharField(max_length=128)
-    body = models.TextField()
+    board_id = models.BigIntegerField()
+    text = models.TextField()
 
     class Meta:
         managed = False
-        db_table = 'boards_board'
-
+        db_table = 'comments_comment'

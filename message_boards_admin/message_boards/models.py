@@ -16,5 +16,17 @@ class BoardsBoard(models.Model):
     body = models.TextField()
 
     class Meta:
-        # managed = False
+        managed = False
         db_table = 'boards_board'
+
+
+class BoardsBoardimage(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    created_at = models.DateTimeField()
+    modified_at = models.DateTimeField()
+    image_id = models.CharField(max_length=64)
+    board = models.ForeignKey(BoardsBoard, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'boards_boardimage'

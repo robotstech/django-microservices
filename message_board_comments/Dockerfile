@@ -6,7 +6,7 @@ RUN chmod +x /entrypoint.sh
 
 WORKDIR /app
 
-EXPOSE 8002
+EXPOSE 8000
 
 COPY ./requirements.txt /app/requirements.txt
 RUN python -m pip install pip --no-cache-dir --upgrade

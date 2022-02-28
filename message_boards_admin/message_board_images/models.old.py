@@ -8,14 +8,12 @@
 from django.db import models
 
 
-class BoardsBoard(models.Model):
+class ImagesImage(models.Model):
     id = models.BigAutoField(primary_key=True)
     created_at = models.DateTimeField()
     modified_at = models.DateTimeField()
-    title = models.CharField(max_length=128)
-    body = models.TextField()
+    image = models.CharField(max_length=100)
 
     class Meta:
         managed = False
-        db_table = 'boards_board'
-
+        db_table = 'images_image'
