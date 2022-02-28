@@ -45,9 +45,10 @@ INSTALLED_APPS = [
     'django_seed',
 
     # third-party installed apps
+    'django_microservices_admin',
 
     # microservices-apps
-    'message_boards',
+    'app1',
 ]
 
 MIDDLEWARE = [

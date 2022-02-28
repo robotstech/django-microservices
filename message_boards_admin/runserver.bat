@@ -1,1 +1,2 @@
-python manage.py runserver 8001
+call reload.bat
+python manage.py runserver 8000
