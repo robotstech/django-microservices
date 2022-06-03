@@ -22,3 +22,4 @@ class CommentImage(BaseModel):
     class Meta:
         unique_together = ('image_id', 'comment')
 
+

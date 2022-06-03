@@ -8,7 +8,7 @@ Microservices developed in django
 1. Python 3.8+ [link](https://www.python.org/downloads/release/python-387/)
 2. Virtualenv
 3. Docker
-4. DOcker Compose
+4. Docker Compose
 
 ### Installation
 Make sure to download/clone this repository and navigate to the folder in your terminal. Now follow the instructions 
@@ -39,23 +39,5 @@ You can find out the path to your `python3` interpreter with the command `which 
     python manage.py runserver
    
 
-## Usage/In-depth API Documentation.
-See [DOCUMENTATION.md](DOCUMENTATION.md)
-
-## Contributing
-See [CONTRIBUTION.md](CONTRIBUTION.md)
-
-## Code of conducts
-See [Code of Conducts](CODE_OF_CONDUCT.md)
-
-## Authors/Contributors
-See list of [contributors](https://github.com/robotstech/django-microservices-admin/graphs/contributors) 
-who contributed to this project
-
-## Security Contact
-Please disclose any security-related issues or vulnerabilities by emailing 
-[contact's email](mailto:tech@robotslimited.com), instead of using the public issue tracker. 
-See [SECURITY.md](SECURITY.md) for more information.
-
 ## License
-See list of [LICENSE](LICENSE) 
+See list of [LICENSE](../LICENSE) 

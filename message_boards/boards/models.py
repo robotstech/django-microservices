@@ -17,4 +17,5 @@ class Board(BaseModel):
 
 class BoardImage(BaseModel):
     board = models.ForeignKey(Board, on_delete=models.CASCADE, related_name="images")
-    image_id = models.BigIntegerField(unique=True)
+    image_id = models.PositiveBigIntegerField()
+
