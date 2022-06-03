@@ -15,14 +15,23 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
 from message_boards import settings
+from boards.views import BoardImageViewSet, BoardViewSet
+from message_boards.settings import API_PREFIX
+
+router = DefaultRouter()
+router.register("boards", BoardViewSet, basename="boards")
+router.register("board-images", BoardImageViewSet, basename="board-images")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
 
+    # apps
+    path(f'{API_PREFIX}/', include(router.urls)),
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

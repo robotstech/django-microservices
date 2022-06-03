@@ -6,7 +6,8 @@ RUN chmod +x /entrypoint.sh
 
 WORKDIR /app
 
-EXPOSE 8000
+
+EXPOSE 8003
 
 COPY ./requirements.txt /app/requirements.txt
 RUN python -m pip install pip --no-cache-dir --upgrade
@@ -15,4 +16,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["gunicorn", "message_boards.wsgi", "-b 0.0.0.0:8000"]
+CMD ["gunicorn", "message_boards.wsgi", "-b 0.0.0.0:8003"]

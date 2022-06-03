@@ -11,5 +11,15 @@ class BaseModel(models.Model):
 
 
 class Comment(BaseModel):
-    board_id = models.PositiveBigIntegerField()
-    text = models.TextField()
+    body = models.TextField()
+    board_id = models.BigIntegerField(unique=True)
+
+
+class CommentImage(BaseModel):
+    image_id = models.BigIntegerField(unique=True)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name="images")
+
+    class Meta:
+        unique_together = ('image_id', 'comment')
+
+
